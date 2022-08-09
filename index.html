@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/Dropdow.css">
+</head>
+<body>
+    <div id="container">
+
+        <div id="top">
+            <h2 class="pWhite">车联网数据跨域实况</h2>
+            <canvas id="canvas1" width="500" height="60"></canvas>
+            <canvas id="canvas2" width="1260" height="60"></canvas>
+
+            <div id="dropdownBox">
+                more
+                <div id="forStyle">
+                    <ul id="dropdown">
+                        <li> <a href="html/simulate.html">仿真</a> </li>
+                        <li> <a href="html/cloudy.html">服务器</a> </li>
+                        <li> <a href="html/qkl.html">区块链</a> </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        
+        <div id="main">
+            <div id="m1" class="mm">
+                <div id="m1-top">
+                    <p id="p1">路况时报</p>
+                    <p id="p2">traffic times</p>
+                </div>
+                <div id="m1-main">
+                    <div class="m1-main-k">
+                        <div class="m1-main-k-top">
+                            <p>2022-07-21 08:00</p>
+                            <p>拱墅区 环城北路西</p>
+                        </div>
+                        <p>一辆卡车失控撞向路边，车辆限载2吨...</p>
+                        <p class="id" style="display:none">1</p><input type="button" value="详情" class="details">
+                    </div>
+                    <div class="m1-main-k">
+                        <div class="m1-main-k-top">
+                            <p>2022-07-21 08:00</p>
+                            <p>拱墅区 环城北路西</p>
+                        </div>
+                        <p>一辆卡车失控撞向路边，车辆限载2吨...</p>
+                    </div>
+                    <div class="m1-main-k">
+                        <div class="m1-main-k-top">
+                            <p>2022-07-21 08:00</p>
+                            <p>拱墅区 环城北路西</p>
+                        </div>
+                        <p>一辆卡车失控撞向路边，车辆限载2吨...</p>
+                    </div>
+                    <div class="m1-main-k">
+                        <div class="m1-main-k-top">
+                            <p>2022-07-21 08:00</p>
+                            <p>拱墅区 环城北路西</p>
+                        </div>
+                        <p>一辆卡车失控撞向路边，车辆限载2吨...</p>
+                    </div>
+                </div>
+            </div>
+            <div id="m2" class="mm">
+                <img src="imgs/map2.gif" alt="" id="m2-map">
+            </div>
+            <div id="m3" class="mm">
+                <div class="m3-level">
+                    <div class="level-le">
+                        <div class="m3-le-top">
+                            <p class="m3-top">安全域数据共享实况</p>
+                            <p class="m3-ying">Secure domain data sharing live</p>
+                            <div class="m3-right">
+                                <div class="xian"></div>
+                                <p class="m3-shu">01</p>
+                            </div>
+                        </div>
+                        <div class="m3-le-main" id="echart1"></div>
+                    </div>
+                    <div class="level-le">
+                        <div class="m3-le-top">
+                            <p class="m3-top">安全域数据共享实况</p>
+                            <p class="m3-ying">Secure domain data sharing live</p>
+                            <div class="m3-right">
+                                <div class="xian"></div>
+                                <p class="m3-shu">02</p>
+                            </div>
+                        </div>
+                        <div class="m3-le-main" id="echart2"></div>
+                    </div>
+                </div>
+                <div class="m3-level" id="m3-level2">
+                    <div class="level-le">
+                        <div class="m3-le-top">
+                            <p class="m3-top">跨域密文转换时间</p>
+                            <p class="m3-ying">ciphertext conversion overhead</p>
+                            <div class="m3-right">
+                                <div class="xian"></div>
+                                <p class="m3-shu">03</p>
+                            </div>
+                        </div>
+                        <div class="m3-le-main" id="echart3"></div>
+                    </div>
+                    <div class="level-le">
+                        <div class="m3-le-top">       
+                            <p class="m3-top">车辆侧解密时间</p>
+                            <p class="m3-ying">vehicle decryption time</p>
+                            <div class="m3-right">
+                                <div class="xian"></div>
+                                <p class="m3-shu">04</p>
+                            </div>
+                        </div>
+                        <div class="m3-le-main" id="echart4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="js/echarts.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/common.js"></script>
+</body>
+</html>

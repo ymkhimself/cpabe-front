@@ -1,0 +1,37 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+/* 下拉菜单 位置*/
+/* 在每一页面css里单独配置 */
+#dropdownBox{
+    color: rgb(61, 61, 61);
+    background-color: #52F2F2;
+    border-radius: 15px;
+    width: 65px;
+    height: 27px;
+    text-align: center;
+    padding-top: 4px;
+    cursor:pointer;
+    z-index: 4;
+}
+#forStyle{
+    background-color: #52F2F2;
+    width: 65px;
+    border-radius: 8px;
+}
+ul{
+    list-style: none;
+}
+#dropdown{
+    display: none;
+    margin-top: 10px;
+}
+#dropdown a{
+    text-decoration: none;
+    color: rgb(61, 61, 61);
+}
+#dropdown li{
+    /* background-color: #52F2F2; */
+    line-height: 33px;
+}

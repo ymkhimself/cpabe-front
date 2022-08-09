@@ -1,0 +1,146 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#container{
+    background-color: #091D42;
+    display: flex;
+    flex-direction:column;
+    height:calc(100vh);
+}
+#top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 115px;
+}
+#top h2{
+    color: #ABB6CC;
+    margin-top: 0.5rem;
+} 
+p{
+    color: white;
+    box-sizing: border-box;
+}
+#canvas1{
+    margin-top: -0.4rem;
+}
+#canvas2{
+    margin-top: -1.8rem;
+    width: 99%;
+}
+
+/* 下拉菜单 位置*/
+#dropdownBox{
+    margin-right: -80rem;
+    margin-top: -7rem;
+}
+
+
+#main{
+    margin-top: -2.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#le1{
+    padding-left: 15px;
+    width: 98%;
+}
+#xian{
+    width: 5px;
+    height: 40px;
+    background-color: aqua;
+    margin-left: 1rem;
+}
+#con1{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+#con1 p{
+    font-size: larger;
+    position: relative;
+    left: 1rem;
+}
+.name{
+    width: 98%;
+    /* border: 1px solid green; */
+    margin-left: 1rem;
+}
+.name p{
+    margin: 2px;
+}
+#le2{
+    width: 98%;
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid red; */
+    margin-top: 0.6rem;
+    /* overflow: auto; */
+}
+#le2-main{
+    width: 98%;
+    color: white;
+    height: 500px;
+
+}
+table, td, th {
+    border: 1px solid aqua;
+    text-align: center;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+table{
+    border-collapse: collapse;
+}
+.details{
+    border: 1px solid #ABB6CC;
+    padding: 1px;
+}
+#details{
+    display: none;
+    position: absolute;
+    z-index: 2;
+    top: 15%;
+    left: 25%;
+    width: 60%;
+    height: 50%;
+    background-color: #324A77;
+    opacity: 0.9;
+}
+#detail-top{
+    display: flex;
+    padding: 8px;
+    align-items: center;
+    justify-content: center;
+}
+#detail-zhong{
+    font-size: larger;
+    color: #52F2F2;
+}
+#close{
+    color: red;
+    position: relative;
+    left: 37%;
+    font-size: larger;    
+}
+#detail-top img{
+    width: 40px;
+}
+.le1{
+    display: flex;
+    border: 1px solid #73819d;
+    width: 90%;
+    margin-top: -1;
+    padding: 0.5rem;
+    margin-bottom:-1px ;
+}
+.detail-title{
+    font-weight: bolder;
+}
+#detail-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

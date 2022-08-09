@@ -1,0 +1,190 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+/* ============================================= */
+/* 滚动条设置 */
+::-webkit-scrollbar{
+    background-color: #000
+}
+::-webkit-scrollbar {
+    width:8px;
+}
+::-webkit-scrollbar-track {   /* 滚轮背景 */
+    background-color: #324A77;
+} 
+::-webkit-scrollbar-thumb {   /* 滚轮 */
+    background-color: #73819d ;
+} 
+::-webkit-scrollbar-button {  /* 滚轮上下两节点 */
+    height: 0;
+} 
+::-webkit-scrollbar-corner {   /* 横竖两个滚动条相交处尖角的颜色 */
+    background-color: #73819d ;
+} 
+::-webkit-scrollbar-thumb {   /*定义滑块 内阴影+圆角*/
+    border-radius: 10px;
+    background-color: rgba(240, 240, 240, 0.5);
+}
+/* ============================================================ */
+#container{
+    background-color: #091D42;
+    display: flex;
+    flex-direction:column;
+    height:calc(100vh);
+}
+
+#top{
+    display: flex;
+    height: 130px;
+    flex-direction: column;
+    align-items: center;
+}
+#top h2{
+    color: #ABB6CC;
+    margin-top: 0.5rem;
+} 
+p{
+    color: white;
+    box-sizing: border-box;
+}
+#canvas1{
+    margin-top: -0.4rem;
+}
+#canvas2{
+    margin-top: -1.8rem;
+    width: 99%;
+}
+/* 下拉菜单 位置*/
+#dropdownBox{
+    margin-right: -80rem;
+    margin-top: -7rem;
+}
+
+
+#main{
+    display: flex;
+    margin-top: 1rem;
+}
+.mm{
+    margin: 0.4rem;
+    /* height: calc(100vh); */
+
+}
+#m1{
+    width: 15%;
+    height: 96%;
+    background-color: #324A77;
+    opacity: 0.8;
+}
+#m1-top{
+    text-align: center;
+    border-bottom: 1px solid #8C9D9D;
+    padding: 3px;
+}
+#m1-main{
+    height: 35rem;
+}
+#p1{
+    font-size: 1.8rem;
+}
+#p2{
+    font-size: 0.9rem;
+    color: #52F2F2;
+    position: relative;
+    left: -7%;
+}
+.m1-main-k{
+    margin: 0.6rem;
+    border-radius: 8%;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    padding: 0.5rem;
+    background-color: #647591;
+    opacity: 0.9;
+    border-bottom: 3px dashed #52F2F2;
+}
+.m1-main-k p{
+    font-size: 0.9rem;
+}
+.m1-main-k-top p{
+    font-size: 0.8rem;
+}
+.details{
+    background-color: #647591;
+    border: 1px solid #647591;
+    color: rgb(196, 193, 193);
+    padding: 2px;
+    position: relative;
+    left: 75%;
+}
+#m2{
+    width: 40%;
+    height: 96%;
+}
+#m2-map{
+    width: 98%;
+    /* height: 80%; */
+}
+
+
+#m3{
+    width: 46%;
+    height: 96%;
+    /* height: 41rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.m3-level{
+    height: 49.5%;
+    display: flex;
+    justify-content: space-between;
+}
+.level-le{
+    width: 49.5%;
+    height: 100%;
+    background-color: #324A77;
+    opacity: 0.8;
+}
+.m3-le-top{
+    padding: 0.5rem;
+}
+.m3-top{
+    font-size: large;
+}
+.m3-ying{
+    color: #52F2F2;
+    font-size: 0.5rem;
+    width: 75%;
+}
+.m3-shu{
+    color: #52F2F2;
+    font-size: 2rem;
+}
+.m3-right{
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    float: right;
+    margin-top: -15%;
+}
+.xian{
+    height: 2rem;
+    width: 0;
+    border: 1px solid #52F2F2;
+    transform: rotate(-20deg);
+}
+.m3-le-main{
+    width: 280px;
+    height: 274px;
+    margin: 0 auto;
+}
+.m3-le-main div canvas{
+    height: 260px;
+    /* 没用，对canvas没法在这里修改 */
+}
+.content{
+    display: none;
+}
+

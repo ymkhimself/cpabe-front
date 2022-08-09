@@ -1,0 +1,256 @@
+/* 固定建筑 位置*/
+/* =============================== */
+.TA{
+    position: relative;
+    width: 9%;
+    height: 17%;
+}
+#TA1{
+    z-index: 2;
+    top: 14%;
+    left: 23%;
+    width: 100px;
+    height: 100px;
+}
+#TA2{
+    z-index: 2;
+    top: 16%;
+    left: 48%;
+    width: 110px;
+    height: 110px;
+}
+#cloudy{
+    top:5%;
+    left: -33%;
+    z-index: 2;
+}
+#RSU1{
+    top: 67%;
+    left: -5%;
+    width: 60px;
+    height: 60px;
+}
+#RSU2{
+    top: 63%;
+    left: 25%;
+    width: 60px;
+    height: 60px;
+}
+/* ================================ */
+#start{
+    width: 8%;
+    height: 10%;
+    background-color: #A4E7C8;
+    border: 1px solid rgb(55, 50, 50);
+    font-weight: bolder;
+    font-size: larger;
+    position: relative;
+    top: 65%;
+    left: 35%;
+    border-radius: 20%;
+}
+#submitBtn{
+    width: 80px;
+    height: 40px;
+    background-color: #A4E7C8;
+    border: 1px solid rgb(55, 50, 50);
+    border-radius: 20%;
+    font-weight: bolder;
+    position: relative;
+    top: -8%;
+    left: 80%;
+}
+#submitBtn2{
+    width: 80px;
+    height: 40px;
+    background-color: #A4E7C8;
+    border: 1px solid rgb(55, 50, 50);
+    border-radius: 20%;
+    font-weight: bolder;
+    position: absolute;
+    top: 200px;
+    left: 400px;
+}
+/* 路人车辆 */
+/* =========================================== */
+.cars{
+    width: 1.6%;
+    height: 8%;
+    position: relative;
+}
+#car1{
+    top: 3%;
+    left: -80px;
+    transform: rotate(170deg);
+}
+#car2{
+    transform: rotate(173deg);
+    top: 40%;
+    left: -80px;
+}
+#car3{
+    transform: rotate(-10deg);
+    top: 40%;
+    left: -60px;
+}
+#car4{
+    top: 80%;
+    left: -65px;
+    transform: rotate(-7deg);
+}
+#car5{
+    transform: rotate(87deg);
+    top: 43%;
+    left: -50px;
+}
+#car6{
+    transform: rotate(-93deg);
+    top: 42%;
+    left: -27%;
+}
+/* 共享车 */
+#car7{
+    transform: rotate(87deg);
+    top: 52%;
+    left: -62%;
+}
+/* 请求车 */
+#car8{
+    transform: rotate(-94deg);
+    top: 33%;
+    left: 20%;
+}
+/* ============================================== */
+.message{
+    width: 25px;
+    height: 30px;
+    position: relative;
+    display: none;
+}
+#msg1{
+    top: 50%;
+    left: -50%;
+}
+#msg2{
+    top: 32%;
+    left: 2%;
+}
+#msg3{
+    left: -40%;
+    top: -5%;
+}
+#msg4{
+    left: -20%;
+    top: -10%;
+}
+#msg5{
+    display: none;
+    position: absolute;
+    height: 50px;
+    width: 30px;
+    top: 320px;
+    left: 800px;
+}
+/* ===================弹窗====================== */
+#pop{
+    display: none;
+    border: 1px solid rgb(55, 50, 50);
+    width: 500px;
+    height: 250px;
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    background-color: #F0F3FC;
+    opacity: 0.9;
+    z-index: 5;
+}
+#close{
+    position: absolute;
+    top: -7%;
+    left: 95%;
+    color: red;
+}
+#close2{
+    z-index: 6;
+    display: none;
+    position: relative;
+    top: -70%;
+    left: 72%;
+    color: red;
+}
+#pop p{
+    position: relative;
+    left: 3%;
+    font-weight: bolder;
+    padding: 1px;
+    width: 400px;
+}
+/* ================================================== */
+#accident{
+    display: none;
+    width: 60px;
+    position: relative;
+    top: 50%;
+    left: -40%;
+}
+.accidentInput{
+    width: 200px;
+    height: 20px;
+}
+#envelope1{
+    display: none;
+    width: 40px;
+    position: relative;
+    top: 48%;
+    left: -47%;
+}
+#envelope2{
+    display: none;
+    width: 40px;
+    position: relative;
+    top: 65%;
+    left: -50%;
+    z-index: 3;
+}
+#envelope3{
+    display: none;
+    width: 40px;
+    position: absolute;
+    top: 350px;
+    left: 850px;
+    z-index: 3;
+}
+/*================域============*/
+#yu1{
+    position: absolute;
+    left: 100px;
+    border-radius: 50%;
+    width: 700px;
+    height: 700px;
+    background-color: #EEE9B3;
+    opacity: 0.4;
+}
+#yu2{
+    position: absolute;
+    left: 700px;
+    border-radius: 50%;
+    width: 700px;
+    height: 700px;
+    background-color: #E37F60;
+    opacity: 0.3;
+}
+#xian{
+    z-index: 1;
+    width: 400px;
+    height: 2px;
+    position: absolute;
+    top: 180px;
+    left: 450px;
+    background-color: black;
+}
+#qklgif{
+    position: absolute;
+    top: 300px;
+    width: 150px;
+    height: 100px;
+}

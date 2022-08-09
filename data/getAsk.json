@@ -1,0 +1,16 @@
+[
+    {
+        "msg": "成功",
+        "code": 1,
+        "data": [
+            {
+                "id": 1,
+                "area": "余杭区",
+                "num": 500,
+                "des_area": "拱墅区",
+                "des_location": "环城北路西",
+                "time": null
+            }
+        ]
+    }
+]

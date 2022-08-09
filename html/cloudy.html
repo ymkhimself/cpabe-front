@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cloudy</title>
+    <link rel="stylesheet" href="../css/cloudy.css">
+    <link rel="stylesheet" href="../css/Dropdow.css">
+</head>
+
+<body>
+    <div id="container">
+        <div id="top">
+            <h2 class="pWhite" id="mainPage">云服务器数据</h2>
+            <canvas id="canvas1" width="500" height="60"></canvas>
+            <canvas id="canvas2" width="1260" height="60"></canvas>
+
+            <div id="dropdownBox">
+                more
+                <div id="forStyle">
+                    <ul id="dropdown">
+                        <li> <a href="../index.html">实况</a> </li>
+                        <li> <a href="../index.html">仿真</a> </li>
+                        <li> <a href="../html/qkl.html">区块链</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div id="main">
+            <div id="le1">
+                <div id="con1">
+                    <div id="xian"></div>
+                    <p>ATeamCurity</p>
+                </div>
+                <div class="name">
+                    <p>存储区域：华南 存储量：3.47KB 对象数：5 访问控制：公开 空间类型：自有空间</p>
+                    <p>标准存储：共5个文件 共3.47KB存储量</p>
+                </div>
+            </div>
+            <div id="le2">
+                <table border="1" id="le2-main">
+                    <th>文件包</th>
+                    <th>文件大小</th>
+                    <th>文件类型</th>
+                    <th>存储类型</th>
+                    <th>最近更新</th>
+                    <th>操作</th>
+                    <tr>
+                        <td>row 1, cell 1</td>
+                        <td>row 1, cell 2</td>
+                        <td>row 1, cell 1</td>
+                        <td>row 1, cell 2</td>
+                        <td>row 1, cell 2</td>
+                        <td>
+                            <p class="details">详情</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="details">
+            <div id="detail-top">
+                <img src="../imgs/文件.svg" alt="">
+                <p id="detail-zhong">文件详情</p>
+                <p id="close">X</p>
+            </div>
+            <div id="detail-main">
+                <div class="le1">
+                    <p class="detail-title">文件名称：</p>
+                    <p id="txhash">6545545647678675976768768686868768686</p>
+                </div>
+                <div class="le1">
+                    <p class="detail-title">文件类型：</p>
+                    <p id="validation_code">6545545647678675976768768686868768686</p>
+                </div>
+                <div class="le1">
+                    <p class="detail-title">ETag：</p>
+                    <p id="payload_proposal_hash">6545545647678675976768768686868768686</p>
+                </div>
+                <div class="le1">
+                    <p class="detail-title">文件大小：</p>
+                    <p id="creator_msp_id">6545545647678675976768768686868768686</p>
+                </div>
+                <div class="le1">
+                    <p class="detail-title">存储类型：</p>
+                    <p id="endorser_msp_id">6545545647678675976768768686868768686</p>
+                </div>
+                <div class="le1">
+                    <p class="detail-title">文件链接：</p>
+                    <p id="chaincodename">6545545647678675976768768686868768686</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/cloudy.js"></script>
+</body>
+
+</html>

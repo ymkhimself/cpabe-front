@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>qkl</title>
+    <link rel="stylesheet" href="../css/qkl.css">
+    <link rel="stylesheet" href="../css/Dropdow.css">
+</head>
+
+<body>
+    <div id="container">
+        <div id="level1">
+            <h2 class="pWhite" id="mainPage">区块链浏览器</h2>
+            <canvas id="canvas1" width="500" height="60"></canvas>
+            <canvas id="canvas2" width="1260" height="60"></canvas>
+
+            <div id="dropdownBox">
+                more
+                <div id="forStyle">
+                    <ul id="dropdown">
+                        <li> <a href="../index.html">实况</a> </li>
+                        <li> <a href="../index.html">仿真</a> </li>
+                        <li> <a href="../html/cloudy.html">服务器</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+        <div id="level2">
+            <div id="k1" class="kk">
+                <img src="../imgs/qukuai.svg" alt="" class="tubiao" id="tu1">
+                <div class="zi">
+                    <p class="shuzi" id="qukuai">19</p>
+                    <p class="jieshi">区块数</p>
+                </div>
+            </div>
+            <div class="xian"></div>
+            <div id="k2" class="kk">
+                <img src="../imgs/jiaoyi.svg" alt="" class="tubiao" id="tu2">
+                <div class="zi">
+                    <p class="shuzi" id="tx">19</p>
+                    <p class="jieshi">交易数</p>
+                </div>
+            </div>
+            <div class="xian"></div>
+            <div id="k3" class="kk">
+                <img src="../imgs/jiedian.svg" alt="" class="tubiao" id="tu3">
+                <div class="zi">
+                    <p class="shuzi" id="peer">4</p>
+                    <p class="jieshi">节点数</p>
+                </div>
+            </div>
+            <div class="xian"></div>
+            <div id="k4" class="kk">
+                <img src="../imgs/qukuailian.svg" alt="" class="tubiao" id="tu4">
+                <div class="zi">
+                    <p class="shuzi" id="lian">1</p>
+                    <p class="jieshi">区块链数</p>
+                </div>
+            </div>
+        </div>
+        <div id="level3">
+            <div id="jdmc">
+                <!-- <div id="jdmc-top"> -->
+                <p id="jdmc-top">节点名称</p>
+                <div id="jdmc-xian"></div>
+                <!-- </div> -->
+                <div id="jdmc-main">
+                    <p class="main1">peer1.org2.example.com:10051</p>
+                    <p class="main2">peer1.org2.example.com:10051</p>
+                    <p class="main1">peer1.org2.example.com:10051</p>
+                    <p class="main2">peer1.org2.example.com:10051</p>
+                    <p class="main1">peer1.org2.example.com:10051</p>
+                </div>
+            </div>
+            <div id="qxt">
+                <p id="qxt-top">TRANSACTIONS</p><br>
+                <div id="qxt-main">
+                    <div class="qxt-p">
+                        <p id="name">Creator：Org1Msp</p>
+                        <p>Chaincode：fabcar</p>
+                        <p>Channel Name：mychannel</p>
+                        <p>Type：ENDORSER_TRANSACTION</p>
+                        <p>TxId：<br>857f51df40275d99fc63928f4fdca5be5d281a2e3aebe0e05d98742815a51667</p>
+                        <p class="time">Timestamp：2022-08-02T11:20:18.355Z</p>
+                        <p class="time2">更多</p>
+                    </div>
+                    <div class="qxt-p">
+                        <p id="name">Creator：Org1Msp</p>
+                        <p>Chaincode：fabcar</p>
+                        <p>Channel Name：mychannel</p>
+                        <p>Type：ENDORSER_TRANSACTION</p>
+                        <p>TxId:857f51df40275d99fc63928f4fdca5be5d281a2e3aebe0e05d98742815a51667</p>
+                        <p class="time">Timestamp：2022-08-02T11:20:18.355Z</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="level4">
+            <div id="blocks">
+                <div id="block">
+                    <div id="blocks-top">
+                        <img src="../imgs/qukuai.svg" alt="" id="blocks-tubiao">
+                        <p>BLOCK18</p>
+                    </div>
+                    <div id="blocks-left">
+                        <p>Channel Name:mychannel</p>
+                        <p>Datahash:</p>
+                        <p>sacx213432cdswwslczhzxygyhjszy22dcssssbdfbdfbd</p>
+                    </div>
+                    <div id="blocks-right">
+                        <p>Number of Tx：1</p>
+                        <p>3 weeks ago</p>
+                    </div>
+                </div>
+            </div>
+            <div id="tx">
+                <p id="tx-top">Transactions by Organization</p>
+                <div class="xian"></div>
+                <div id="tx-tu">
+                    <!-- 饼图在此 -->
+                </div>
+            </div>
+        </div>
+
+        <div id="details">
+            <div id="detail-top">
+                <img src="../imgs/details.svg" alt="">
+                <p id="detail-zhong">Transaction Details</p>
+                <p id="close">X</p>
+            </div>
+            <div id="detail-main">
+                <div class="le1">
+                    <p class="detail-title">Transaction ID：</p>
+                    <p id="txhash">6545545647678675976768768686868768686</p>
+                </div>
+                <div class="le1">
+                    <p class="detail-title">Vaildation Code：</p>
+                    <p id="validation_code">6545545647678675976768768686868768686</p>
+                </div>
+                <div class="le1">
+                    <p class="detail-title">Payload Proposal Hash：</p>
+                    <p id="payload_proposal_hash">6545545647678675976768768686868768686</p>
+                </div>
+                <div class="le1">
+                    <p class="detail-title">Creator MSP：</p>
+                    <p id="creator_msp_id">6545545647678675976768768686868768686</p>
+                </div>
+                <div class="le1">
+                    <p class="detail-title">Endorser：</p>
+                    <p id="endorser_msp_id">6545545647678675976768768686868768686</p>
+                </div>
+                <div class="le1">
+                    <p class="detail-title">Chaincode Name：</p>
+                    <p id="chaincodename">6545545647678675976768768686868768686</p>
+                </div>
+                <div class="le1">
+                    <p class="detail-title">Type：</p>
+                    <p id="type">6545545647678675976768768686868768686</p>
+                </div>
+                <div class="le1">
+                    <p class="detail-title">Time：</p>
+                    <p id="createdt">6545545647678675976768768686868768686</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="../js/echarts.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/qkl.js"></script>
+</body>
+
+</html>

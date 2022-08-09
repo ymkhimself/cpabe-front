@@ -1,0 +1,9 @@
+{"status":200,"channels":[{
+    "id":3,
+    "channelname":"mychannel",
+    "blocks":9,
+    "channel_genesis_hash":"6070a7a228591c823603d85bfe260d367310431d21b776d4fc0058cf6b2f91bf",
+    "transactions":9,
+    "createdat":"2022-08-02T08:11:56.000Z",
+    "channel_hash":""
+    }]}

@@ -1,0 +1,38 @@
+{
+    "status": 200,
+    "peers": [
+        {
+            "requests": "peer0.org2.example.com:9051",
+            "server_hostname": "peer0.org2.example.com:9051",
+            "channel_genesis_hash": "6070a7a228591c823603d85bfe260d367310431d21b776d4fc0058cf6b2f91bf",
+            "mspid": "Org2MSP",
+            "peer_type": "PEER",
+            "status": "DOWN",
+            "ledger_height_low": "-",
+            "ledger_height_high": "-",
+            "ledger_height_unsigned": "-"
+        },
+        {
+            "requests": "peer0.org1.example.com:7051",
+            "server_hostname": "peer0.org1.example.com:7051",
+            "channel_genesis_hash": "6070a7a228591c823603d85bfe260d367310431d21b776d4fc0058cf6b2f91bf",
+            "mspid": "Org1MSP",
+            "peer_type": "PEER",
+            "status": "DOWN",
+            "ledger_height_low": "-",
+            "ledger_height_high": "-",
+            "ledger_height_unsigned": "-"
+        },
+        {
+            "requests": "orderer.example.com:7050",
+            "server_hostname": "orderer.example.com:7050",
+            "channel_genesis_hash": "6070a7a228591c823603d85bfe260d367310431d21b776d4fc0058cf6b2f91bf",
+            "mspid": "OrdererMSP",
+            "peer_type": "ORDERER",
+            "status": "DOWN",
+            "ledger_height_low": "-",
+            "ledger_height_high": "-",
+            "ledger_height_unsigned": "-"
+        }
+    ]
+}

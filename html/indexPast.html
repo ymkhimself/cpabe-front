@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlockAndCar</title>
+    <link rel="shortcut icon" href="../imgs/icon.png">
+</head>
+<style>
+    #container {
+        position: absolute;
+        border: 1px solid rgb(55, 50, 50);
+        width: 99%;
+        height: 98%;
+    }
+    #main {
+        height: 86%;
+        display: flex;
+    }
+    #log p {
+        font-size: smaller;
+        font-weight: bolder;
+        padding: 5px;
+    }
+    #right {
+        width: 100%;
+        height: 116%;
+        background: url(../imgs/mapnew.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        /* 下两行是为range的圆圈超出地图部分不显示 */
+        overflow: hidden;
+        position: relative;
+    }
+
+    /* 固定建筑 位置*/
+    /* =============================== */
+    .TA {
+        position: relative;
+        width: 100px;
+        margin: 0 7px;
+        height: 17%;
+    }
+
+    #TA1 {
+        top: 12%;
+        left: 23%;
+    }
+
+    #TA2 {
+        top: 16%;
+        left: 48%;
+    }
+
+    /* 连接ta的线 */
+    #line{
+        position: relative;
+        width: 35%;
+        top: -2%;
+        left: 27.4%;
+    }
+    #cloudy {
+        width: 100px;
+        height: 83px;
+        top: 5%;
+        left: 26%;
+        z-index: 2;
+    }
+
+    #RSU1 {
+        top: 66%;
+    }
+
+    #RSU2 {
+        top: 65%;
+        left: 22%;
+    }
+
+    /* ================================ */
+    #start {
+        width: 8%;
+        height: 10%;
+        background-color: #A4E7C8;
+        border: 1px solid rgb(55, 50, 50);
+        font-weight: bolder;
+        font-size: larger;
+        position: relative;
+        top: 65%;
+        left: 35%;
+        border-radius: 20%;
+    }
+
+    .submitBtn{
+        width: 80px;
+        height: 40px;
+        background-color: #A4E7C8;
+        border: 1px solid rgb(55, 50, 50);
+        border-radius: 20%;
+        font-weight: bolder;
+        position: relative;
+        top: -8%;
+        left: 80%;
+    }
+
+    #submitBtn {
+        width: 80px;
+        height: 40px;
+        background-color: #A4E7C8;
+        border: 1px solid rgb(55, 50, 50);
+        border-radius: 20%;
+        font-weight: bolder;
+        position: relative;
+        top: -8%;
+        left: 80%;
+    }
+
+    #submitBtn2 {
+        position: absolute;
+        top: 200px;
+        left: 400px;
+    }
+
+    /* 路人车辆 */
+    /* =========================================== */
+    .cars {
+        width: 1.6%;
+        height: 8%;
+        position: relative;
+    }
+
+    #car1 {
+        top: 3%;
+        left: -12.5%;
+        transform: rotate(170deg);
+    }
+
+    #car2 {
+        transform: rotate(173deg);
+        top: 40%;
+        left: -11.9%;
+    }
+
+    #car3 {
+        transform: rotate(-10deg);
+        top: 40%;
+        left: -11%;
+    }
+
+    #car4 {
+        top: 80%;
+        left: -11.5%;
+        transform: rotate(-7deg);
+    }
+
+    #car5 {
+        transform: rotate(87deg);
+        top: 46%;
+        left: -5%;
+    }
+
+    #car6 {
+        transform: rotate(-93deg);
+        top: 45%;
+        left: -27%;
+    }
+
+    /* 共享车 */
+    #car7 {
+        transform: rotate(87deg);
+        top: 54%;
+        left: -62%;
+    }
+
+    /* 请求车 */
+    #car8 {
+        transform: rotate(-94deg);
+        top: 35.5%;
+        left: 20%;
+    }
+
+    /* ============================================== */
+    .message {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        display: none;
+        cursor: pointer;
+    }
+
+    /* 填入两车信息 */
+    #msg01 {
+        right: 65%;
+        top: 49%;
+    }
+
+    #msg02 {
+        left: 15%;
+        top: 29%;
+    }
+
+    /* 显示两车配置 */
+    #msg1 {
+        top: 49%;
+        left: -53%;
+    }
+
+    #msg2 {
+        top: 32%;
+        left: 2%;
+    }
+
+    /* 右边上传两个给rsu后，rsu达到500信息的两个信息 */
+    #msg5 {
+        display: none;
+        position: absolute;
+        height: 35px;
+        width: 30px;
+        top: 210px;
+        left: 900px;
+    }
+
+    #msg6 {
+        display: none;
+        position: absolute;
+        height: 35px;
+        width: 30px;
+        top: 225px;
+        left: 950px;
+    }
+
+    #msg7{
+        display: none;
+        position: absolute;
+        height: 35px;
+        width: 30px;
+        top: 210px;
+        left: 900px;
+    }
+
+    #msg8{
+        display: none;
+        position: absolute;
+        height: 35px;
+        width: 30px;
+        top: 225px;
+        left: 950px;
+    }
+
+    .envelopeRedDot {
+        width: 62px;
+        height: 43px;
+        z-index: 2;
+        position: absolute;
+        display: none;
+    }
+
+    #envelope498 {
+        left: 64%;
+        top: 62%;
+    }
+
+    #envelope499 {
+        left: 64%;
+        top: 62%;
+    }
+
+    #envelope500 {
+        left: 64%;
+        top: 72%;
+    }
+
+    #envelope0 {
+        left: 64%;
+        top: 72%;
+    }
+
+    #envelope01 {
+        display: none;
+        width: 40px;
+        position: absolute;
+        z-index: 3;
+        left: 64%;
+        top: 62%;
+    }
+
+    #envelope02 {
+        display: none;
+        width: 40px;
+        position: absolute;
+        z-index: 3;
+        left: 64%;
+        top: 62%;
+    }
+
+    /* ===================弹窗====================== */
+    #pop {
+        display: none;
+        border: 1px solid rgb(55, 50, 50);
+        width: 500px;
+        height: 250px;
+        padding: 15px;
+        position: absolute;
+        top: 15%;
+        left: 35%;
+        background-color: #F0F3FC;
+        opacity: 0.9;
+        z-index: 5;
+    }
+
+    #close {
+        position: relative;
+        margin: 0;
+        width: 20px;
+        top: 2%;
+        left: 95%;
+        color: red;
+    }
+
+    #close2 {
+        width: 20px;
+        z-index: 6;
+        display: none;
+        position: relative;
+        top: -59%;
+        left: 72%;
+        color: red;
+        cursor: pointer;
+    }
+
+    #pop p {
+        position: relative;
+        left: 5%;
+        font-weight: bolder;
+        margin: 0;
+        /* padding: 1px; */
+        /* width: 400px; */
+    }
+
+    /* ================================================== */
+    #accident {
+        display: none;
+        width: 60px;
+        position: absolute;
+        top: 55%;
+        left: 30%;
+    }
+
+    .accidentInput {
+        width: 200px;
+        height: 20px;
+    }
+
+    #envelope1 {
+        display: none;
+        width: 40px;
+        position: relative;
+        top: 48%;
+        left: -47%;
+    }
+
+    #envelope2 {
+        display: none;
+        width: 40px;
+        position: relative;
+        top: 65%;
+        left: -43%;
+        z-index: 3;
+    }
+
+    #envelope3 {
+        display: none;
+        width: 40px;
+        position: absolute;
+        top: 220px;
+        left: 850px;
+        z-index: 3;
+    }
+
+    #envelope4 {
+        display: none;
+        width: 40px;
+        position: absolute;
+        top: 220px;
+        left: 850px;
+        z-index: 3;
+    }
+
+    /* 范围 */
+    #rangeLeft {
+        /* #fff94f */
+        background-color: #0467b8;
+        width: 100vw;
+        height: 100vw;
+        border-radius: 100vh;
+        opacity: 0.3;
+        position: absolute;
+        top: -33%;
+        left: -50%;
+        z-index: 0;
+    }
+
+    #rangeRight {
+        /* display: none;  */
+        background-color: #ff9138;
+        width: 100vw;
+        height: 100vw;
+        border-radius: 100vh;
+        opacity: 0.3;
+        position: absolute;
+        top: -38%;
+        right: -52%;
+        z-index: 0;
+    }
+</style>
+
+<body>
+    <div id="container">
+        <!-- <div id="top">
+            <img src="../imgs/icon.png" alt="logo" id="logo">
+            <h1 id="title">基于区块链的车联网高效跨域数据安全共享系统</h1>
+            <input type="button" value="MORE" id="more">
+        </div> -->
+
+        <div id="main">
+
+            <div id="right">
+                <div id="rangeLeft"></div>
+                <div id="rangeRight"></div>
+
+                <img src="../imgs/拱墅区TA.png" alt="TA1" class="TA" id="TA1">
+                <img src="../imgs/西湖区TA.png" alt="TA2" class="TA" id="TA2">
+                <img src="../imgs/Cloud.png" alt="cloudy" class="TA" id="cloudy">
+                <img src="../imgs/RSU.png" alt="RSU1" class="TA" id="RSU1">
+                <img src="../imgs/RSU.png" alt="RSU2" class="TA" id="RSU2">
+                <input type="button" value="开 始" id="start">
+
+                <!-- 车辆 -->
+                <img src="../imgs/truck.png" alt="car1" class="cars" id="car1">
+                <img src="../imgs/ordinaryCar.png" alt="car2" class="cars" id="car2">
+                <img src="../imgs/ambulance.png" alt="car3" class="cars" id="car3">
+                <img src="../imgs/truck.png" alt="car4" class="cars" id="car4">
+                <img src="../imgs/policeCar.png" alt="car5" class="cars" id="car5">
+                <img src="../imgs/policeCar.png" alt="car6" class="cars" id="car6">
+                <img src="../imgs/truck.png" alt="car7" class="cars" id="car7">
+                <img src="../imgs/ambulance.png" alt="car8" class="cars" id="car8">
+
+                <!-- 标识 -->
+                <img src="../imgs/newMessage.jpg" alt="newMessage" class="message" id="msg01">
+                <img src="../imgs/newMessage.jpg" alt="newMessage" class="message" id="msg02">
+                <img src="../imgs/newMessage.jpg" alt="newMessage" class="message" id="msg1">
+                <img src="../imgs/newMessage.jpg" alt="newMessage" class="message" id="msg2">
+                <!-- msg3,4是原拱墅区TA与云服务器上的信息，现已无用，并删去 -->
+                <img src="../imgs/信封498.png" alt="envelope498" class="envelopeRedDot" id="envelope498">
+                <img src="../imgs/信封499.png" alt="envelope499" class="envelopeRedDot" id="envelope499">
+                <img src="../imgs/信封500.png" alt="envelope500" class="envelopeRedDot" id="envelope500">
+                <!-- <img src="../imgs/信封GIF.gif" alt="envelope500" class="envelopeRedDot" id="envelopeGIF"> -->
+                <img src="../imgs/信封0.png" alt="envelope0" class="envelopeRedDot" id="envelope0">
+                <img src="../imgs/冲突.png" alt="accient" id="accident" style="cursor:pointer">
+                <img src="../imgs/信封.png" alt="envelope" id="envelope1" class="envelope">
+                <img src="../imgs/信封.png" alt="envelope" id="envelope2" class="envelpoe">
+                <!-- 右边上传两个给rsu，rsu达到500信息的两个信息-->
+                <img src="../imgs/newMessage.jpg" alt="newMessage" class="message" id="msg5">
+                <img src="../imgs/newMessage.jpg" alt="newMessage" class="message" id="msg6">
+                <!-- 两个请求车又出现叹号，点击叹号，弹窗显示车辆车牌，获得解密信息 -->
+                <img src="../imgs/newMessage.jpg" alt="newMessage" class="message" id="msg7">
+                <img src="../imgs/newMessage.jpg" alt="newMessage" class="message" id="msg8">
+                <img src="../imgs/信封.png" alt="envelope" id="envelope3" class="envelpoe">
+                <img src="../imgs/信封.png" alt="envelope" id="envelope4" class="envelpoe">
+                <img src="../imgs/信封.png" alt="envelope" id="envelope01" class="envelpoe">
+                <img src="../imgs/信封.png" alt="envelope" id="envelope02" class="envelpoe">
+                <!-- 连接TA的线 -->
+                <img src="../imgs/line.png" alt="line" id="line">
+            </div>
+
+            <div id="pop">
+                <!-- 弹窗，空着，需要什么填充进来 -->
+            </div>
+        </div>
+    </div>
+
+
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        
+        <!-- <script src="src/page/index.js"></script> -->
+        <script>
+            // 此处全局变量
+            var TITLE="环城北路西发生一起交通事故";
+            var CONTENT="一辆卡车失控撞向路边";
+            var TIME="2022-02-02 02:02";
+            //第一步：输入车的车牌，位置，状态，属性信息
+            $("#msg01").show();
+            $("#msg02").show();
+
+            var car1;
+            var car2;
+
+            $("#msg01").on("click", function () {
+                var str = "<p>";
+                str += "车牌：<input type='text' id='car_plate' class='car1Info'><br><br>";
+                str += "状态：<input type='text' id='state' class='car1Info'><br><br>"
+                str += "属性：<input type='text' id='attribute' class='car1Info'><br><br>"
+                str += "所属域：<input type='text' id='location' class='car1Info'><br><br>"
+                str += "</p>";
+                str += "<input type='submit' value='添 加' id='submitBtnSmall1' class='submitBtn' style='cursor:pointer;' >";
+                $("#pop").html(str);
+                $("#pop").css("height","220px");
+                $("#pop").show();
+                //添加车辆的接口 接口01{}
+                $("#submitBtnSmall1").on("click", function () {
+                    var car_plate = $("#car_plate").val();
+                    car1 = car_plate;
+                    var location = $("#location").val();
+                    var status = $("#state").val();
+                    var attribute = $("#attribute").val();
+                    // ===============================================================================
+                    // $.post("/addCar",{
+                    //     "car_plate":car_plate,
+                    //     "location":location,
+                    //     "status":status,
+                    //     "attribute":attribute
+                    // },function(data){
+                    //     console.log(data);
+                    // },"json")
+                    $("#pop").hide();
+                });
+            })
+
+            $("#msg02").on("click", function () {
+                var str = "<p>";
+                str += "车牌：<input type='text' id='car_plate' class='car2Info'><br><br>";
+                str += "状态：<input type='text' id='state' class='car2Info'><br><br>"
+                str += "属性：<input type='text' id='attribute' class='car2Info'><br><br>"
+                str += "所属域：<input type='text' id='location' class='car2Info'><br><br>"
+                str += "</p>";
+                str += "<input type='submit' value='添 加' id='submitBtnSmall2' class='submitBtn' style='cursor:pointer;' >"
+                $("#pop").html(str);
+                $("#pop").css("height","200px");
+                $("#pop").show();
+                //添加车辆的接口 接口02
+                $("#submitBtnSmall2").on("click", function () {
+                    // ===========================================================================
+                    var car_plate = $("#car_plate").val();
+                    car2 = car_plate;
+                    var location = $("#location").val();
+                    var status = $("#state").val();
+                    var attribute = $("#attribute").val();
+                    // ===============================================================================
+                    // $.post("/addCar",{
+                    //     "car_plate":car_plate,
+                    //     "location":location,
+                    //     "status":status,
+                    //     "attribute":attribute
+                    // },function(data){
+                    //     console.log(data);
+                    // },"json")
+                    $("#pop").hide();
+                });
+            })
+
+            //第二步：查看车牌，私钥，所属域
+            $("#msg1").on("click", function () {
+                var str = "<h5 id='close' style='cursor:pointer;'>X</h5>";
+                str += "<p>车牌：1B120</p><br><br>";
+                str += "<p id='pk'>私钥：xfwxzyp2ni</p><br><br>"
+                str += "<p>所属域：拱墅区</p> <br><br>"
+                $("#pop").html(str);
+                $("#pop").show();
+            })
+
+            $("#msg2").on("click", function () {
+                var str = "<h5 id='close' style='cursor:pointer;'>X</h5>";
+                str += "<p>车牌：ZX3305</p><br><br>";
+                str += "<p id='pk'>私钥：xfwxzyp2ni</p><br><br>"
+                str += "<p>所属域：西湖区</p> <br><br>"
+                $("#pop").html(str);
+                $("#pop").show();
+            })
+
+            // 第三步：再运行一小段，事故发生
+            //开始和继续的大按钮
+            $("#start").one("click", function () {
+                $("#msg01").hide();
+                $("#msg02").hide();
+                $("#start").attr('value', '继 续');
+                carStart();
+                mainCar();
+                setTimeout("getPkButton()", 1000);
+
+                //继续  事故
+                // while($(this).attr('id')!="start"){};
+                $("#start").one("click", function () {
+                    $(".message").hide();
+                    carStart();
+                    mainCar();
+                    setTimeout("accident()", 1000);
+                })
+            })
+
+            
+            //事故卡片
+            function accident() {
+                $("#accident").show();
+                $("#accident").on("click", function () {
+                    var str = "<p>";
+                    str += "事故时间：<input type='datetime-local' id='acciTime' class='accidentInput'><br><br>";
+                    str += "所属域&nbsp;&nbsp;&nbsp;：<input type='text' id='area' class='accidentInput'><br><br>"
+                    str += "事故地点：<input type='text' id='acciAddr' class='accidentInput'><br><br>"
+                    str += "事故简介：<input type='text' id='title' class='accidentInput'><br><br>"
+                    str += "详细内容：<input type='text' id='content' class='accidentInput'><br><br>"
+                    str += "访问策略：<input type='text' id='strategy' class='accidentInput'><br><br>"
+                    str += "</p>";
+                    str += "<input type='submit' value='上 传' id='submitBtnAccident' class='submitBtn' style='cursor:pointer;' >";
+                    $("#pop").html(str);
+                    $('#pop').css("height", "300px");
+                    $("#pop").show();
+                    //事故数据上传 接口2
+                    $("#submitBtnAccident").on("click", function(){
+                        $("#pop").hide();
+                        $("#envelope1").show();
+                        envelope();//事故发生后，信封发给ta和云服务器的过程
+
+                        var car_id=car1;
+                        var time=$("#acciTime").val();
+                        var area=$("#acciAddr").val();
+                        var location=$("#area").val();
+                        var title=$("#title").val();
+                        var content=$("#content").val();
+                        var strategy=$("#strategy").val();
+                        TITLE=title;
+                        CONTENT=content;
+                        TIME=time;
+                        // =====================================================================================
+                            // 事故数据上传  接口2实现
+                            // $.post("/addUpload",{
+                            //     "car_id":car_id,
+                            //     "time":time,
+                            //     "area":area,
+                            //     "location":location,
+                            //     "title":title,
+                            //     "content":content,
+                            //     "strategy":strategy
+                            // },function(data){
+                            //     console.log(data);
+                            // },"json")
+
+                    });
+                })
+            }
+
+            //信封上传路径(事故发生后，信封发给ta和云服务器的过程)
+            function envelope() {
+                $("#envelope1").animate({ top: "+=100px", left: "+=72px" }, 1000);
+                setTimeout(function () {
+                    $("#envelope2").show();
+                    $("#envelope1").animate({ top: "-=350px", left: "-=10px" }, 1000);
+                    $("#envelope2").animate({ top: "-=340px", left: "+=160px" }, 1000);
+                }, 1000);
+                //日志输出  是不是该后端输出  新增接口2
+
+                //message2 3出现
+                setTimeout(function () {
+                    $("#envelope1").hide();
+                    $("#envelope2").hide();
+                    $("#start").one("click", makeRequest);//第二阶段，点击继续后右车跳出叹号
+                }, 2500);
+                //云服务器获取密文数据
+                $("#msg4").on("click", getCiphertext);
+            }
+
+            //车辆行走
+            function carStart() {
+                $("#car1").animate({ top: "+=100px", left: "+=12px" }, 1000);
+                $("#car2").animate({ top: "+=70px", left: "+=6px" }, 1000);
+                $("#car3").animate({ top: "-=90px", left: "-=14px" }, 1000);
+                $("#car4").animate({ top: "-=100px", left: "-=9px" }, 1000);
+                $("#car5").animate({ top: "-=10px", left: "+=100px" }, 1000);
+                $("#car6").animate({ top: "+=10px", left: "-=120px" }, 1000);
+            }
+            function mainCar() {
+                $("#car7").animate({ top: "-=3px", left: "+=150px" }, 1000);  //事故车
+                $("#car8").animate({ top: "+=12px", left: "-=120px" }, 1000);
+            }
+            //加载车辆消息按钮
+            function getPkButton() {
+                $("#msg1").show().on("click", getPk);
+                $("#msg2").show().on("click", getPk);
+            }
+            //加载车辆私钥卡片
+            function getPk() {
+                //接口1  加载不同车辆私钥  所属域
+                $("#pop").show();
+
+                // $.post("/getPrivateKey", {
+                //     "car_plate": car1
+                // }, function (data) {
+                //     var obj = data['data'];
+                //     console.log(data);
+                // }, "json")
+
+                $("#close").on("click", function () {
+                    $("#pop").hide();
+                })
+            }
+            //获取密文数据  接口3
+            function getCiphertext() {
+                //接口3  获取密文数据
+                var str = "密文数据：tnsjdhcxuwqdhjrcbqzrgnyydhxqwwntx";
+                $("#pop p").text(str);
+                // $("#submitBtn").hide();  //这行好像没意义，所以注释掉了
+                $("#close2").show();
+                $("#close2").one("click", function () {
+                    $("#pop").hide();
+                    $("#close2").hide();
+                });
+                $("#pop").show();
+            }
+
+            //第四步：点击继续，西湖区的RSU出现一个信封498
+            //右车 “请求车的叹号出现” 
+
+            //车辆发起数据请求  数据请求卡片
+            function makeRequest() {
+                $("#envelope498").show();
+
+                $("#msg5").show();
+                $("#msg5").one("click", function () {
+                    var str = "<p>";
+                    str += "时间：<input type='datetime-local' id='time' class='accidentInput'><br><br>"
+                    str += "所属域：<input type='text' id='area' class='accidentInput'><br><br>"
+                    str += "请求域：<input type='text' id='Des_area' class='accidentInput'><br><br>"
+                    str += "请求地点：<input type='text' id='Des_location' class='accidentInput'><br><br>"
+                    str += "</p>";
+                    str += "<input type='submit' value='提 交' id='submitBtnRequest1' class='submitBtn' style='cursor:pointer;'>";
+                    $("#pop").html(str);
+                    $("#pop").css("height","210px");
+                    $("#pop").show();
+                    //原：提交请求域的信息  新增的接口；现：仅实现信息上传和目前窗口的消失
+                    // $("#submitBtn2").one("click",justHideUpload);
+                    $("#submitBtnRequest1").one("click", postRequest1);
+                })
+
+                $("#msg6").show();
+                $("#msg6").one("click", function () {
+                    var str = "<p>";
+                    str += "时间：<input type='datetime-local' id='time' class='accidentInput'><br><br>"
+                    str += "所属域：<input type='text' id='area' class='accidentInput'><br><br>"
+                    str += "请求域：<input type='text' id='Des_area' class='accidentInput'><br><br>"
+                    str += "请求地点：<input type='text' id='Des_location' class='accidentInput'><br><br>"
+                    str += "</p>";
+                    str += "<input type='submit' value='提 交' id='submitBtnRequest2' class='submitBtn' style='cursor:pointer;'>";
+                    $("#pop").html(str);
+                    $("#pop").css("height","210px");
+                    $("#pop").show();
+                    //原：提交请求域的信息  新增的接口；现：仅实现信息上传和目前窗口的消失
+                    $("#submitBtnRequest2").one("click", postRequest2);
+                })
+            }
+
+            // 第五步：信封从车传至RSU
+
+            //现在：右边两个车里的(左边车) 开始//
+            //原：提交请求域的信息  新增的接口实现
+            function postRequest1() {
+                $("#submitBtnRequest1").hide();
+                var time=$("#time").val();
+                var area=$("#area").val();
+                var Des_area=$("#Des_area").val();
+                var Des_location=$("#Des_location").val();
+                // =================================================================================
+                // $.post("/addAsk",{
+                //     "time":time,
+                //     "area":area,
+                //     "Des_area":Des_area,
+                //     "Des_location":Des_location,
+                //     "num":500
+                // },function(data){
+                //     console.log(data)
+                // },"json")
+
+                $("#pop").hide();
+                //请求的信封移动
+                $("#msg5").hide();
+                $("#envelope3").show();
+                $("#envelope3").animate({ top: "+=90px", left: "-=30px" }, 1000, function () {
+                    $("#envelope3").hide();
+                    $("#envelope498").hide();
+                    $("#envelope499").show();
+                });
+                //获取解密数据 接口4;最后显示的“弹窗显示车辆车牌，获得解密信息”
+                setTimeout(() => {
+                    // $("#msg7").show();//和msg8show写在一起了
+                    $("#msg7").one("click", getPlaintext1);
+                }, 9100)
+                
+            }
+
+            //获取解密数据卡片 接口4实现
+            function getPlaintext1() {
+                var str = "<p>";
+                str += "车辆：ZX3305<br><br>";
+                // str += "获得解密信息：<br><br>"+""+"<br><br>"+CONTENT;
+                str += "获得解密信息：<br><br>"+TIME+TITLE+"<br><br>"+CONTENT;
+                str += "</p>";
+                str += "<input type='submit' value='确 定' id='submitBtnConfirm' class='submitBtn' style='cursor:pointer;'>";
+                $("#pop p").html(str);
+                $("#pop p").css("left","2%")
+                $("#pop p").css("height","190px")
+                // $("#submitBtnConfirm").attr('value', '确 定');
+                $("#pop").show();
+                $("#submitBtnConfirm").one("click", function(){
+                    $("#pop").hide();
+                    $("#msg7").hide();
+                    $("#envelope01").hide();  
+                });
+                // //验证  接口5
+                // $("#submitBtn").one("click", verify1);
+            }
+            //验证 接口5实现
+            // function verify1() {
+            //     var str = "<p>数据验证正确!</p>";
+            //     str += "<h5 id='close'>X</h5>";
+            //     $("#pop p").html(str);
+            //     $("#close2").show();
+            //     $("#close").on("click", function () {
+            //         $("#pop").hide();
+            //     });
+            //     //初始化
+            //     $("#close2").one("click", init);
+            // }
+            //现在：右边两个车里的(左边车) 结束//
+
+            function sentLastEnvelopes() {
+                $("#envelope01").show();
+                $("#envelope02").show();
+                $("#envelope01").animate({ top: "-=70px", left: "+=55px" }, 1000);
+                $("#envelope02").animate({ top: "-=50px", left: "+=115px" }, 1000);
+                setTimeout(() => {
+                    console.log("现在时间"+Date())
+                    $("#envelope500").hide();
+                    $("#envelope0").show();
+                }, 2100)
+            }
+
+            //现在：右边两个车里的(右边车) 开始//
+            //原：提交请求域的信息  新增的接口实现
+            function postRequest2() {
+                $("#submitBtnRequest2").hide();
+                var time=$("#time").val();
+                var area=$("#area").val();
+                var Des_area=$("#Des_area").val();
+                var Des_location=$("#Des_location").val();
+                // =================================================================================
+                // $.post("/addAsk",{
+                //     "time":time,
+                //     "area":area,
+                //     "Des_area":Des_area,
+                //     "Des_location":Des_location,
+                //     "num":500
+                // },function(data){
+                //     console.log(data)
+                // },"json")
+
+                $("#pop").hide();
+                //请求的信封移动
+                $("#msg6").hide();
+                $("#envelope4").show();
+                $("#envelope4").animate({ top: "+=150px", left: "-=30px" }, 1000, function () {
+                    $("#envelope4").hide();
+                    $("#envelope499").hide();
+                    $("#envelope500").show();
+                    $("#envelope500").animate({ top: "-=300px", left: "-=30px"}, 1000);
+                    $("#envelope500").animate({ top: "+=0px", left: "-=420px" }, 1000);
+                    $("#envelope500").animate({ top: "+=0px", left: "+=420px" }, 1000);
+                    $("#envelope500").animate({ top: "+=280px", left: "+=0px" }, 1000);
+                    setTimeout(() => {
+                        $("#envelope500").hide();
+                        $("#envelope0").show();
+                        $("#start").one("click", sentLastEnvelopes());
+                    }, 4000)
+
+                    // $("#envelope500").animate({top:"-=100px",left:"+=55px"},1000);  //分发信息
+                });
+
+                //获取解密数据 接口5;最后显示的“弹窗显示车辆车牌，获得解密信息”
+                setTimeout(() => {
+                    $("#msg7").show()
+                }, 6500)
+                setTimeout(() => {
+                    $("#msg8").show()
+                    $("#msg8").one("click", getPlaintext2);
+                }, 7000)
+            }
+
+            //获取解密数据卡片 接口4实现
+            function getPlaintext2() {
+                var str = "<p>";
+                str += "车辆：ZX2222<br><br>";
+                str += "获得解密信息：<br><br>"+TIME+TITLE+"<br><br>"+CONTENT;
+                str += "</p>";
+                str += "<input type='submit' value='确 定' id='submitBtnConfirm2' class='submitBtn' style='cursor:pointer;'>";
+                $("#pop").css("height","180px");
+                $("#pop p").html(str);
+                // $("#submitBtnConfirm2").attr('value', '确 定');
+                $("#pop").show();
+                $("#submitBtnConfirm2").on("click", function(){
+                    $("#pop").hide();
+                    $("#msg8").hide();
+                    $("#envelope02").hide(); 
+                    carStart();
+                    $("#car8").animate({ top: "+=12px", left: "-=120px" }, 1000);
+                    $("#start").attr('value', '结 束');
+                });
+                //验证  接口5
+                // $("#submitBtnRequest2").one("click", verify2);
+            }
+
+            //验证 接口5实现
+            // function verify2() {
+            //     var str = "<p>数据验证正确!</p>";
+            //     str += "<h5 id='close'>X</h5>";
+            //     $("#pop p").html(str);
+            //     $("#close2").show();
+            //     $("#close").hide();
+            //     //初始化
+            //     $("#close2").one("click", init);
+            // }
+            //现在：右边两个车里的(右边车) 结束//
+
+
+            //初始化
+            function init() {
+                $("#pop").hide();
+                $("#close2").hide();
+                $("#msg5").hide();
+                carStart();
+                // $("#start").attr('value', '结 束');
+            }
+        </script>
+</body>
+
+</html>
