@@ -245,7 +245,23 @@ function timelyFun() {
     myChart4.setOption(option4);
 }
 
+// 滚动实况
 
+var div = document.querySelector('#m1-main');
+setTimeout(fun, 1000);
+//通过设置flg变量，配合三元表达式，实现文字向上滚动
+var flg = true;
+function fun() {
+    if (div.scrollTop <= 0) flg = true;
+    //当div.scrollTop的值大于等于700的时候，就重新赋值为0
+    if (div.scrollTop >= 730) { flg = false; div.scrollTop = 0 }
+    //+=3是控制向上移动的距离
+    flg ? div.scrollTop += 3 : div.scrollTop += 3;
+    console.log(div.scrollTop);
+    //递归，隔330毫秒调用一次
+    setTimeout(fun, 70);
+
+}
 
 
 

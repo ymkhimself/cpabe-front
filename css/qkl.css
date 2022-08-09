@@ -238,9 +238,9 @@ p{
     display: none;
     position: absolute;
     z-index: 2;
-    top: 12%;
+    top: 10%;
     width: 60%;
-    height: 68%;
+    height: 65%;
     background-color: #091D42;
     opacity: 0.8;
 }
@@ -277,4 +277,9 @@ p{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+/* ====================有改动============ */
+#value{
+    word-wrap: break-word;
+    word-break: break-all;
 }

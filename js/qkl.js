@@ -88,6 +88,7 @@ setTimeout(function () {
         var txId=$(this).prev().text(); //拼到后面
         $.get("../data/transaction.json",function(data){
             var obj=data['row'];
+            var obj2=data['row'].write_set[1].set[0];
             $("#txhash").text(obj.txhash);
             $("#validation_code").text(obj.validation_code);
             $("#payload_proposal_hash").text(obj.payload_proposal_hash);
@@ -96,6 +97,8 @@ setTimeout(function () {
             $("#chaincodename").text(obj.chaincodename);
             $("#type").text(obj.type);
             $("#createdt").text(obj.createdt);
+            $("#key").text(obj2.key);
+            $("#value").text(obj2.value);
         },"json");
         $("#details").show();
         $("#close").on("click",function(){

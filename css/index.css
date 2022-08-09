@@ -84,6 +84,7 @@ p{
 }
 #m1-main{
     height: 35rem;
+    overflow: hidden;
 }
 #p1{
     font-size: 1.8rem;
