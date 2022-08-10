@@ -3,7 +3,7 @@ $("#mainPage").on("click",function(){
 });
 
 var str = "<table border='1' id='le2-main'><th>文件包</th><th>文件大小</th><th>文件类型</th><th>存储类型</th><th>最近更新</th><th>哈希</th>";
-$.get("../data/cloudy.json", function (data) {
+$.get("/logKodo", function (data) {
     for (var i = 0; i < data.length; i++) {
         str += "<tr><td>"
             + data[i].key + "</td><td>"

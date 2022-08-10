@@ -1,9 +1,9 @@
-$("#mainPage").on("click",function(){
-    window.location="../index.html";
+$("#mainPage").on("click", function () {
+    window.location = "../index.html";
 });
 
 // status接口
-$.get("../data/status.json", function (data) {
+$.get("http://192.168.154.128:8081/status", function (data) {
     $("#qukuai").text(data['latestBlock']);
     $("#tx").text(data['txCount']);
     $("#peer").text(data['peerCount']);
@@ -11,7 +11,7 @@ $.get("../data/status.json", function (data) {
 }, "json");
 
 // 节点名称
-$.get("../data/peersStatus.json", function (data) {
+$.get("http://192.168.154.128:8081/peersStatus", function (data) {
     var obj = data['peers'];
     var str = "";
     for (var i = 0; i < data['peers'].length; i++) {
@@ -21,74 +21,74 @@ $.get("../data/peersStatus.json", function (data) {
 }, "json");
 
 //区块信息
-$.get("../data/blockList.json", function (data) {
+$.get("http://192.168.154.128:8081/blockList/" + `from=${new Date("August 4, 2022 2:46 PM").toString()}&&to=${new Date().toString()}`, function (data) {
     var obj = data['rows'];
-    var str="";
+    var str = "";
     for (var i = 0; i < data['rows'].length; i++) {
-        str+="<div class='block'><div class='blocks-top'><img src='../imgs/qukuai.svg'  class='blocks-tubiao'><p>"+"BLOCK "+
-        obj[i].blocknum+"</p></div><div class='blocks-left'> <p>"+"Channel Name"+
-        obj[i].channelname+"</p><p>Datahash:</p><p>"+
-        obj[i].datahash+"</p></div><div class='blocks-right'><p>"+"Number of Tx："+
-        obj[i].txcount+"</p></div></div>"
+        str += "<div class='block'><div class='blocks-top'><img src='../imgs/qukuai.svg'  class='blocks-tubiao'><p>" + "BLOCK " +
+            obj[i].blocknum + "</p></div><div class='blocks-left'> <p>" + "Channel Name" +
+            obj[i].channelname + "</p><p>Datahash:</p><p>" +
+            obj[i].datahash + "</p></div><div class='blocks-right'><p>" + "Number of Tx：" +
+            obj[i].txcount + "</p></div></div>"
     }
     $("#blocks").html(str);
 }, "json");
 
 // 饼图
-$.get("../data/txByOrg.json",function(data){
-    var obj=data['rows'];
-    var str="";
-    for(var i=0;i<data['rows'].length;i++){
-        str+="{ value: "+obj[i].count+", name: '"+obj[i].creator_msp_id+"' },";
+$.get("http://192.168.154.128:8081/txByOrg", function (data) {
+    var obj = data['rows'];
+    var str = "";
+    for (var i = 0; i < data['rows'].length; i++) {
+        str += "{ value: " + obj[i].count + ", name: '" + obj[i].creator_msp_id + "' },";
     }
     // let msg=$.parseJSON(str);
     // console.log(typeof(msg));
 
-        var myChart=echarts.init(document.getElementById('tx-tu'),'dark');
-        var option={
-                backgroundColor: '#091D42',
-                legend: {
-                orient: 'vertical',
-                left: 'left'
-                },
-                series: [
-                {
-                    type: 'pie',
-                    radius: '50%',
-                    data: [
+    var myChart = echarts.init(document.getElementById('tx-tu'), 'dark');
+    var option = {
+        backgroundColor: '#091D42',
+        legend: {
+            orient: 'vertical',
+            left: 'left'
+        },
+        series: [
+            {
+                type: 'pie',
+                radius: '50%',
+                data: [
                     { value: 3, name: obj[0].creator_msp_id },
                     { value: 3, name: obj[1].creator_msp_id },
                     { value: 3, name: obj[2].creator_msp_id },
-                    ],
-                }
-                ]
-        }
-        myChart.setOption(option);
+                ],
+            }
+        ]
+    }
+    myChart.setOption(option);
 
-},"json");
+}, "json");
 
 //事务列表
-$.get("../data/txList.json",function(data){
-    var obj=data['rows'];
-    var str="";
-    for(var i=0;i<obj.length;i++){
-        str+="<div class='qxt-p'><p id='name'>Creator："
-        +obj[i].creator_msp_id+"</p><p>Chaincode："
-        +obj[i].chaincodename+"</p><p>Channel Name："
-        +obj[i].channelname+"</p><p>Type："
-        +obj[i].type+"</p><p class='time'>Timestamp："
-        +obj[i].createdt+"</p></div><p style='display:none'><br>"
-        +obj[i].txhash+"</p><p class='time2'>details</p>";
+$.get("http://192.168.154.128:8081/txList/" + `from=${new Date("August 4, 2022 2:46 PM").toString()}&&to=${new Date().toString()}`, function (data) {
+    var obj = data['rows'];
+    var str = "";
+    for (var i = 0; i < obj.length; i++) {
+        str += "<div class='qxt-p'><p id='name'>Creator："
+            + obj[i].creator_msp_id + "</p><p>Chaincode："
+            + obj[i].chaincodename + "</p><p>Channel Name："
+            + obj[i].channelname + "</p><p>Type："
+            + obj[i].type + "</p><p class='time'>Timestamp："
+            + obj[i].createdt + "</p></div><p style='display:none'><br>"
+            + obj[i].txhash + "</p><p class='time2'>details</p>";
     }
     $("#qxt-main").html(str);
     // console.log(obj);
-},"json");
+}, "json");
 setTimeout(function () {
-    $(".time2").on("click", function(){
-        var txId=$(this).prev().text(); //拼到后面
-        $.get("../data/transaction.json",function(data){
-            var obj=data['row'];
-            var obj2=data['row'].write_set[1].set[0];
+    $(".time2").on("click", function () {
+        var txId = $(this).prev().text(); //拼到后面
+        $.get("http://192.168.154.128:8081/transaction/"+txId, function (data) {
+            var obj = data['row'];
+            var obj2 = data['row'].write_set[1].set[0];
             $("#txhash").text(obj.txhash);
             $("#validation_code").text(obj.validation_code);
             $("#payload_proposal_hash").text(obj.payload_proposal_hash);
@@ -99,9 +99,9 @@ setTimeout(function () {
             $("#createdt").text(obj.createdt);
             $("#key").text(obj2.key);
             $("#value").text(obj2.value);
-        },"json");
+        }, "json");
         $("#details").show();
-        $("#close").on("click",function(){
+        $("#close").on("click", function () {
             $("#details").hide();
         });
     });
